@@ -16,8 +16,30 @@ class Animal:
         self.cond = "healthy"
         Animal.total += 1
 
+    def add_event(self,event_type,event_name, event_date=datetime.now().date()):
+        if event_type == Actions.sick.value:
+            self.hist['sickness'].append((event_name,event_date))
+            self.cond = event_name
+        elif event_type == Actions.operation.value:
+            self.hist['operation'].append((event_name,event_date))
+            self.cond = event_name
+        elif event_type == Actions.vaccine.value:
+            self.hist['vaccination'].append((event_name,event_date))
+        elif event_type == Actions.heal.value:
+            self.cond = "healthy"
+        elif event_type == Actions.sell.value:
+            self.cond = "Sold"
+            Animal.sold += 1
+        else:
+            return "Incorrect code"
+
+    def get_info(self):
+        return f'The name of the animal is {self.name} \n', f'The species of the animal is {self.species} \n', f'The condition of the animal is {self.cond} \n', f'The bday of the animal is {self.bday} \n', f'The sicknesses were the following: {self.hist}'
+
+    def get_id(self):
+        return self.id
+
 '''
-Menu options:
 class Actions(Enum):
     create = 1
     sick = 2
@@ -25,30 +47,7 @@ class Actions(Enum):
     heal = 4
     vaccine = 5
     inquire = 6
-    sell = 7
-    quit = 8
+    list = 7
+    sell = 8
+    quit = 9
 '''
-
-
-def add_event(self,event_type,event_name, event_date=datetime.now().date()):
-    if event_type == Actions.sick.value:
-        self.hist['sickness'].append((event_name,event_date))
-        self.cond = event_name
-    elif event_type == Actions.operation.value:
-        self.hist['operation'].append((event_name,event_date))
-        self.cond = event_name
-    elif event_type == Actions.vaccine.value:
-        self.hist['vaccination'].append((event_name,event_date))
-    elif event_type == Actions.heal.value:
-        self.cond = "healthy"
-    elif event_type == Actions.sell.value:
-        self.cond = "Sold"
-        Animal.sold += 1
-    else:
-        return "Incorrect code"
-
-def get_info(self):
-    return self.hist, self.name, self.cond, self.bday, self.species
-
-def get_id(self):
-    return self.id

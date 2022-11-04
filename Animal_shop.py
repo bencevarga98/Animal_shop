@@ -9,15 +9,22 @@ animals_dict = {}
 #Dynamic numbers, which come from the Actions class in Actions_enum.py file
 def print_menu():
     print(10* '-' + 'MENU' + 10*'-')
-    print(f'Press {Actions.create.value} to create')
+    print(f'Press {Actions.create.value} to create') #Done
     print(f'Press {Actions.sick.value} to log sickness')
     print(f'Press {Actions.operation.value} to log operation')
     print(f'Press {Actions.heal.value} to log healing')
     print(f'Press {Actions.vaccine.value} to log vaccination')
-    print(f'Press {Actions.inquire.value} to inquire')
+    print(f'Press {Actions.inquire.value} to inquire') #Done
+    print(f'Press {Actions.list.value} to list animal names and IDs') 
     print(f'Press {Actions.sell.value} to sell')
-    print(f'Press {Actions.quit.value} to quit')
+    print(f'Press {Actions.quit.value} to quit') #Done
     print(24*'-')
+
+def list_animals():
+    for k,v in animals_dict.items():
+            print(f'The ID is: {k}, and the name is {v.name}')
+    
+
 
 while True:
     print_menu()
@@ -27,6 +34,25 @@ while True:
     if event_code == Actions.quit.value:
         break
     
+    #Add a sickness to an animal
+    elif event_code == Actions.sick.value:
+        id_to_modify = int(input('Please enter an animal ID to register sickness to: '))
+        sickness_name = input('Please enter the name of the sickness: ')
+        is_current = input('Is this a current sickness? y/n: ')
+
+        if is_current == 'y':
+            animals_dict[id_to_modify].add_event('sickness', sickness_name)
+            animals_dict[id_to_modify].cond = 'sick'
+        elif is_current == 'n':
+            date_of_event = input('Please enter when the event took place (YYYY-MM-DD): ')
+            animals_dict[id_to_modify].add_event('sickness', sickness_name, date_of_event)
+        
+        print(f'Added sickness ({sickness_name}) to animal called {animals_dict[id_to_modify].name}')
+
+        continue_to_next = input('To continue enter any character: ')
+        if continue_to_next is True:
+            pass
+
     #Creating a new object instance
     elif event_code == Actions.create.value:
         #Getting neccesary input data for object
@@ -40,11 +66,17 @@ while True:
 
         #Giving user feedback, with the generated ID, then waiting 2 seconds to get back to menu
         print(f'Created an animal with the ID: {animal_temp.get_id()}')
-        time.sleep(2)
+
+        continue_to_next = input('To continue enter any character: ')
+        if continue_to_next is True:
+            pass
 
     #Getting the data of the animal
     elif event_code == Actions.inquire.value:
         animal_id = int(input("Please enter the ID of the animal: "))
-        print(animals_dict[animal_id].get_info())
-
-
+        tuple1 = animals_dict[animal_id].get_info()
+        for i in tuple1:
+            print(i)
+        continue_to_next = input('To continue enter any character: ')
+        if continue_to_next is True:
+            pass

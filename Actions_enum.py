@@ -7,5 +7,6 @@ class Actions(Enum):
     heal = 4
     vaccine = 5
     inquire = 6
-    sell = 7
-    quit = 8
+    list = 7
+    sell = 8
+    quit = 9

@@ -38,7 +38,7 @@ while True:
     #Get history of the animal
     elif event_code == Actions.history.value:
         animal_id = int(input("Please enter the ID of the animal: "))
-        history_type = int(input(f'Please enter the type of history:{Actions.sick.value} for sicknesses, {Actions.operation.value} for operations and {Actions.vaccine.value} for vaccinations.'))
+        history_type = int(input(f'Please enter the type of history: {Actions.sick.value} for sicknesses, {Actions.operation.value} for operations and {Actions.vaccine.value} for vaccinations.'))
 
         print(animals_dict[animal_id].get_history(history_type))
 
@@ -49,11 +49,11 @@ while True:
         is_current = input('Is this a current sickness? y/n: ')
 
         if is_current == 'y':
-            animals_dict[id_to_modify].add_event('sickness', sickness_name)
+            animals_dict[id_to_modify].add_event(Actions.sick.value, sickness_name)
             animals_dict[id_to_modify].cond = 'sick'
         elif is_current == 'n':
             date_of_event = input('Please enter when the event took place (YYYY-MM-DD): ')
-            animals_dict[id_to_modify].add_event('sickness', sickness_name, date_of_event)
+            animals_dict[id_to_modify].add_event(Actions.sick.value, sickness_name, date_of_event)
         else:
             print('Please enter a valid answer (y/n)')
         

@@ -40,7 +40,7 @@ while True:
         animal_id = int(input("Please enter the ID of the animal: "))
         history_type = int(input(f'Please enter the type of history:{Actions.sick.value} for sicknesses, {Actions.operation.value} for operations and {Actions.vaccine.value} for vaccinations.'))
 
-        animals_dict[animal_id].get_history(history_type)
+        print(animals_dict[animal_id].get_history(history_type))
 
     #Add a sickness to an animal
     elif event_code == Actions.sick.value:

@@ -42,7 +42,10 @@ class Animal:
     def get_history(self, history_type):
         if history_type == Actions.sick.value:
             #return sicknesses
-            print(str(self.id) + 'sickness')
+            
+            return(self.hist['sickness'])
+                
+
         elif history_type == Actions.operation.value:
             #return operations
             print(str(self.id) + 'operations')

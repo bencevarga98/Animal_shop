@@ -46,7 +46,7 @@ while True:
     #Get history of the animal
     elif event_code == Actions.history.value:
         animal_id = int(input("Please enter the ID of the animal: "))
-        history_type = int(input(f'Please enter the type of history: {Actions.sick.value} for sicknesses, {Actions.operation.value} for operations and {Actions.vaccine.value} for vaccinations.'))
+        history_type = int(input(f'Please enter the type of history: {Actions.sick.value} for sicknesses, {Actions.operation.value} for operations and {Actions.vaccine.value} for vaccinations: '))
 
         print(animals_dict[animal_id].get_history(history_type))
         enter_to_continue()
@@ -89,7 +89,7 @@ while True:
 
         #Add vaccination to object
         animals_dict[id_to_modify].add_event(Actions.vaccine.value, vaccine_name, date_of_event)
-        print(f'Added vaccine ({operation_name}) to animal called {animals_dict[id_to_modify].name}')
+        print(f'Added vaccine ({vaccine_name}) to animal called {animals_dict[id_to_modify].name}')
         enter_to_continue()
 
     #Creating a new object instance
@@ -114,4 +114,4 @@ while True:
         tuple1 = animals_dict[animal_id].get_info()
         for i in tuple1:
             print(i)
-        enter_to_continue
+        enter_to_continue()

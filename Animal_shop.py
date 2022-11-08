@@ -15,6 +15,7 @@ def print_menu():
     print(f'Press {Actions.heal.value} to log healing')
     print(f'Press {Actions.vaccine.value} to log vaccination')
     print(f'Press {Actions.inquire.value} to inquire') #Done
+    print(f'Press {Actions.history.value} to get the history of an animal')
     print(f'Press {Actions.list.value} to list animal names and IDs') 
     print(f'Press {Actions.sell.value} to sell')
     print(f'Press {Actions.quit.value} to quit') #Done
@@ -33,7 +34,14 @@ while True:
     #Quiting the app
     if event_code == Actions.quit.value:
         break
-    
+
+    #Get history of the animal
+    elif event_code == Actions.history.value:
+        animal_id = int(input("Please enter the ID of the animal: "))
+        history_type = int(input(f'Please enter the type of history:{Actions.sick.value} for sicknesses, {Actions.operation.value} for operations and {Actions.vaccine.value} for vaccinations.'))
+
+        animals_dict[animal_id].get_history(history_type)
+
     #Add a sickness to an animal
     elif event_code == Actions.sick.value:
         id_to_modify = int(input('Please enter an animal ID to register sickness to: '))

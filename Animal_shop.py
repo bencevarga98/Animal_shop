@@ -10,7 +10,7 @@ animals_dict = {}
 def print_menu():
     print(10* '-' + 'MENU' + 10*'-')
     print(f'Press {Actions.create.value} to create') #Done
-    print(f'Press {Actions.sick.value} to log sickness')
+    print(f'Press {Actions.sick.value} to log sickness') #Done
     print(f'Press {Actions.operation.value} to log operation')
     print(f'Press {Actions.heal.value} to log healing')
     print(f'Press {Actions.vaccine.value} to log vaccination')
@@ -26,7 +26,6 @@ def list_animals():
             print(f'The ID is: {k}, and the name is {v.name}')
     
 
-
 while True:
     print_menu()
     event_code = int(input('Please enter the command: '))
@@ -41,6 +40,9 @@ while True:
         history_type = int(input(f'Please enter the type of history: {Actions.sick.value} for sicknesses, {Actions.operation.value} for operations and {Actions.vaccine.value} for vaccinations.'))
 
         print(animals_dict[animal_id].get_history(history_type))
+        continue_to_next = input('To continue enter any character: ')
+        if continue_to_next is True:
+            pass
 
     #Add a sickness to an animal
     elif event_code == Actions.sick.value:
@@ -62,6 +64,24 @@ while True:
         continue_to_next = input('To continue enter any character: ')
         if continue_to_next is True:
             pass
+    
+    #Add operation to an animal
+    elif event_code == Actions.operation.value:
+        id_to_modify = int(input('Please enter an animal ID to register operation to: '))
+        operation_name = input('Please enter the name of the operation: ')
+        date_of_event = input('Please enter when the event took place (YYYY-MM-DD): ')
+
+        #Add operation to object
+        animals_dict[id_to_modify].add_event(Actions.operation.value, operation_name, date_of_event)
+
+    #Add vaccination to an animal
+    elif event_code == Actions.vaccine.value:
+        id_to_modify = int(input('Please enter an animal ID to register vaccination to: '))
+        vaccine_name = input('Please enter the name of the vaccine: ')
+        date_of_event = input('Please enter when the event took place (YYYY-MM-DD): ')
+
+        #Add operation to object
+        animals_dict[id_to_modify].add_event(Actions.vaccine.value, vaccine_name, date_of_event)
 
     #Creating a new object instance
     elif event_code == Actions.create.value:

@@ -42,28 +42,12 @@ class Animal:
     def get_history(self, history_type):
         if history_type == Actions.sick.value:
             #return sicknesses
-            
             return(self.hist['sickness'])
-                
 
         elif history_type == Actions.operation.value:
             #return operations
-            print(str(self.id) + 'operations')
+            return(self.hist['operation'])
+
         elif history_type == Actions.vaccine.value:
             #return vaccination history
-            print(str(self.id) + 'vaccine')
-
-        
-
-'''
-class Actions(Enum):
-    create = 1
-    sick = 2
-    operation = 3
-    heal = 4
-    vaccine = 5
-    inquire = 6
-    list = 7
-    sell = 8
-    quit = 9
-'''
+            return(self.hist['vaccination'])

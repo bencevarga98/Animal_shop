@@ -21,8 +21,9 @@ def print_menu():
     print(f'Press {Actions.quit.value} to quit') #Done
     print(24*'-')
 
+#Require users to press enter before returning to main menu
 def enter_to_continue():
-    continue_to_next = input('Press enter to continue!')
+    continue_to_next = input('Press enter to continue to main menu!')
     if continue_to_next is True:
             pass
     

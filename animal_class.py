@@ -39,6 +39,19 @@ class Animal:
     def get_id(self):
         return self.id
 
+    def get_history(self, history_type):
+        if history_type == Actions.sick.value:
+            #return sicknesses
+            pass
+        elif history_type == Actions.operation.value:
+            #return operations
+            pass
+        elif history_type == Actions.vaccine.value:
+            #return vaccination history
+            pass
+        
+        
+
 '''
 class Actions(Enum):
     create = 1

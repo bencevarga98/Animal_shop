@@ -46,6 +46,8 @@ while True:
         elif is_current == 'n':
             date_of_event = input('Please enter when the event took place (YYYY-MM-DD): ')
             animals_dict[id_to_modify].add_event('sickness', sickness_name, date_of_event)
+        else:
+            print('Please enter a valid answer (y/n)')
         
         print(f'Added sickness ({sickness_name}) to animal called {animals_dict[id_to_modify].name}')
 

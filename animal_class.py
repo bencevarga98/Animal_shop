@@ -34,7 +34,7 @@ class Animal:
             return "Incorrect code"
 
     def get_info(self):
-        return f'The name of the animal is {self.name} \n', f'The species of the animal is {self.species} \n', f'The condition of the animal is {self.cond} \n', f'The bday of the animal is {self.bday} \n', f'The sicknesses were the following: {self.hist}'
+        return f'The name of the animal is {self.name} \n', f'The species of the animal is {self.species} \n', f'The condition of the animal is {self.cond} \n', f'The bday of the animal is {self.bday} \n'
 
     def get_id(self):
         return self.id

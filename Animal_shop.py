@@ -12,7 +12,7 @@ def print_menu():
     print(f'Press {Actions.create.value} to create') #Done
     print(f'Press {Actions.sick.value} to log sickness') #Done
     print(f'Press {Actions.operation.value} to log operation') #Done
-    print(f'Press {Actions.heal.value} to log healing')
+    print(f'Press {Actions.heal.value} to log healing') #Done
     print(f'Press {Actions.vaccine.value} to log vaccination') #Done
     print(f'Press {Actions.inquire.value} to get animal data') #Done
     print(f'Press {Actions.history.value} to get the history of an animal') #Done
@@ -34,6 +34,12 @@ while True:
     #Quiting the app
     if event_code == Actions.quit.value:
         break
+
+    #List all animals and their ID's
+    elif event_code == Actions.list.value:
+        for k,v in animals_dict.items():
+            print(f'The animal called {v.name}, who is a(n) {v.species}, has an ID of {k}')
+        enter_to_continue()
 
     #Add healing to animal
     elif event_code ==Actions.heal.value:

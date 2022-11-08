@@ -27,7 +27,6 @@ def enter_to_continue():
     if continue_to_next is True:
             pass
     
-
 while True:
     print_menu()
     event_code = int(input('Please enter the command: '))
@@ -54,7 +53,6 @@ while True:
         else:
             pass
 
-
     #Add healing to animal
     elif event_code ==Actions.heal.value:
         animal_id = int(input("Please enter the ID of the animal: "))
@@ -62,7 +60,6 @@ while True:
         print(f'{animals_dict[animal_id].name} has been healed!')
         enter_to_continue()
         
-
     #Get history of the animal
     elif event_code == Actions.history.value:
         animal_id = int(input("Please enter the ID of the animal: "))

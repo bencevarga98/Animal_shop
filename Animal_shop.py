@@ -16,7 +16,7 @@ def print_menu():
     print(f'Press {Actions.vaccine.value} to log vaccination') #Done
     print(f'Press {Actions.inquire.value} to get animal data') #Done
     print(f'Press {Actions.history.value} to get the history of an animal') #Done
-    print(f'Press {Actions.list.value} to list animal names and IDs') 
+    print(f'Press {Actions.list.value} to list animal names and IDs') #Done
     print(f'Press {Actions.sell.value} to sell')
     print(f'Press {Actions.quit.value} to quit') #Done
     print(24*'-')
@@ -37,9 +37,22 @@ while True:
 
     #List all animals and their ID's
     elif event_code == Actions.list.value:
+        print('You have the following animals in your database:')
         for k,v in animals_dict.items():
             print(f'The animal called {v.name}, who is a(n) {v.species}, has an ID of {k}')
         enter_to_continue()
+
+    #Sell an animal
+    elif event_code == Actions.sell.value:
+        animal_id = int(input('Please enter the ID of the animal: '))
+        are_you_sure = input(f'Are you sure you want to remove {animals_dict[animal_id].name} from the database (y/n): ')
+        if are_you_sure == 'y':
+            print(f'Removed {animals_dict[animal_id].name} from the database.')
+            animals_dict.pop(animal_id)
+            enter_to_continue()
+        else:
+            pass
+
 
     #Add healing to animal
     elif event_code ==Actions.heal.value:

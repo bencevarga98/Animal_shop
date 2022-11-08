@@ -13,7 +13,7 @@ class Animal:
         self.hist = {'sickness':[],'operation':[],'vaccination':[]}
         self.species = species
         self.bday = bday
-        self.cond = "healthy"
+        self.cond = "Healthy"
         Animal.total += 1
 
     def add_event(self,event_type,event_name, event_date=datetime.now().date()):
@@ -51,3 +51,6 @@ class Animal:
         elif history_type == Actions.vaccine.value:
             #return vaccination history
             return(self.hist['vaccination'])
+    
+    def heal(self):
+        self.cond = 'Healthy'
